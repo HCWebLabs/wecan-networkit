@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Service Offerings | WeCan-NetworkIT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Barlow+Condensed:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0d1829; }
+  ::-webkit-scrollbar-thumb { background: #1a52a8; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #3b7dd8; }
+  * { scrollbar-width: thin; scrollbar-color: #1a52a8 #0d1829; }
+
+  /* ─── SCROLL TO TOP ─── */
+  #scroll-top {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    z-index: 999;
+    width: 44px;
+    height: 44px;
+    background: #1a52a8;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background 0.2s;
+    box-shadow: 0 4px 16px rgba(26,82,168,0.4);
+  }
+  #scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  #scroll-top:hover { background: #0d3270; }
+  #scroll-top i { font-size: 15px; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue-50: #e8f0fa;
+    --blue-100: #c3d5f3;
+    --blue-200: #9abbec;
+    --blue-400: #3b7dd8;
+    --blue-600: #1a52a8;
+    --blue-800: #0d3270;
+    --blue-900: #071e45;
+    --slate-50: #f4f6f9;
+    --slate-100: #e8ecf2;
+    --slate-200: #cdd4df;
+    --slate-400: #8896ac;
+    --slate-600: #4e5f78;
+    --slate-800: #1e2d45;
+    --slate-900: #0d1829;
+    --white: #ffffff;
+    --accent: #1a52a8;
+    --accent-light: #e8f0fa;
+    --text-primary: #0d1829;
+    --text-secondary: #4e5f78;
+    --text-muted: #8896ac;
+    --border: #e0e6ef;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --shadow-sm: 0 1px 3px rgba(13,24,41,0.08);
+    --shadow-md: 0 4px 12px rgba(13,24,41,0.10);
+    --shadow-lg: 0 8px 32px rgba(13,24,41,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text-primary);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  .container {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav .container { position: relative; }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    gap: 24px;
+  }
+
+  .nav-logo { display: flex; flex-direction: column; gap: 1px; }
+
+  .nav-logo-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--blue-800);
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  .nav-logo-tagline {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: none;
+    list-style: none;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--accent); }
+
+  .nav-cta { display: flex; align-items: center; gap: 12px; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--accent);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(26,82,168,0.25);
+  }
+
+  .btn-primary:hover { background: var(--blue-800); transform: translateY(-1px); }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    padding: 0;
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 16px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .hamburger:hover { background: var(--slate-50); border-color: var(--slate-200); }
+
+  /* ─── PAGE HERO ─── */
+  .page-hero {
+    background: var(--slate-900);
+    padding: 72px 0 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,125,216,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,125,216,0.07) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+
+  .page-hero-glow {
+    position: absolute;
+    top: -30%;
+    right: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(26,82,168,0.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    flex-wrap: wrap;
+  }
+
+  .breadcrumb a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+  .breadcrumb a:hover { color: rgba(255,255,255,0.75); }
+  .breadcrumb i { font-size: 10px; }
+  .breadcrumb span { color: rgba(255,255,255,0.7); }
+
+  .page-hero-content { position: relative; z-index: 2; }
+
+  .page-hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(59,125,216,0.15);
+    border: 1px solid rgba(59,125,216,0.3);
+    color: #7ab3f0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 13px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(36px, 6vw, 66px);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 18px;
+  }
+
+  .page-hero h1 span { color: #3b7dd8; }
+
+  .page-hero-sub {
+    font-size: clamp(15px, 2vw, 18px);
+    color: rgba(255,255,255,0.6);
+    max-width: 620px;
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  /* ─── STICKY SERVICE NAV ─── */
+  .service-nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 68px;
+    z-index: 90;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .service-nav::-webkit-scrollbar { height: 0; }
+
+  .service-nav-inner {
+    display: flex;
+    gap: 0;
+    min-width: max-content;
+    padding: 0 20px;
+  }
+
+  .service-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 14px 18px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .service-nav-link i { font-size: 12px; }
+
+  .service-nav-link:hover { color: var(--accent); }
+
+  .service-nav-link.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ─── GENERIC SECTION ─── */
+  .section { padding: 80px 0; }
+  .section-alt { background: var(--slate-50); }
+  .section-dark {
+    background: var(--slate-900);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-dark-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,125,216,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,125,216,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .section-label-light {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #7ab3f0;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+  }
+
+  .section-title-light {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+
+  .section-sub {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 580px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .section-sub-light {
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    max-width: 580px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .section-head { margin-bottom: 48px; }
+
+  /* ─── INTRO VALUE PROP ─── */
+  .value-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .value-body p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 18px;
+    font-weight: 300;
+  }
+
+  .value-body p strong {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .value-body p:last-child { margin-bottom: 0; }
+
+  .value-callout {
+    background: var(--slate-900);
+    border-radius: var(--radius-xl);
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .value-callout-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,125,216,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,125,216,0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+
+  .value-callout-stat {
+    position: relative;
+    z-index: 2;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .value-callout-stat:last-child { border-bottom: none; padding-bottom: 0; }
+  .value-callout-stat:first-child { padding-top: 0; }
+
+  .value-callout-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(59,125,216,0.18);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #7ab3f0;
+    font-size: 18px;
+  }
+
+  .value-callout-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--white);
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .value-callout-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.4;
+  }
+
+  /* ─── INDIVIDUAL SERVICE SECTIONS ─── */
+  .service-section {
+    padding: 80px 0;
+    scroll-margin-top: 120px;
+  }
+
+  .service-section:nth-child(even) { background: var(--slate-50); }
+
+  .service-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .service-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+
+  .service-icon-lg {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-light);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+    font-size: 24px;
+  }
+
+  .service-icon-lg-dark {
+    background: rgba(59,125,216,0.18);
+    color: #7ab3f0;
+  }
+
+  .service-title-wrap h2 {
+    font-size: clamp(24px, 3.5vw, 36px);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .service-number {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .service-body p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 18px;
+    font-weight: 300;
+  }
+
+  .service-body p strong {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .service-body p:last-child { margin-bottom: 0; }
+
+  /* ─── FEATURE LIST ─── */
+  .feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .feature-list li i {
+    color: var(--accent);
+    margin-top: 3px;
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+
+  /* ─── SERVICE DETAIL CARD ─── */
+  .service-detail-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .service-detail-card-dark {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+  }
+
+  .detail-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .detail-row-dark {
+    border-bottom-color: rgba(255,255,255,0.07);
+  }
+
+  .detail-row:last-child,
+  .detail-row-dark:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .detail-row:first-child,
+  .detail-row-dark:first-child { padding-top: 0; }
+
+  .detail-icon {
+    width: 34px;
+    height: 34px;
+    background: var(--accent-light);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+    font-size: 14px;
+  }
+
+  .detail-icon-dark {
+    background: rgba(59,125,216,0.18);
+    color: #7ab3f0;
+  }
+
+  .detail-text-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .detail-text-label-dark { color: rgba(255,255,255,0.35); }
+
+  .detail-text-value {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  .detail-text-value-dark { color: rgba(255,255,255,0.7); }
+
+  /* ─── PROJECTS GRID ─── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .project-tile {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    transition: all 0.2s;
+  }
+
+  .project-tile:hover {
+    border-color: var(--blue-200);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+  }
+
+  .project-tile-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--accent-light);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+    font-size: 14px;
+  }
+
+  .project-tile-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  .project-tile-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  /* ─── STAT HIGHLIGHT ─── */
+  .stat-highlight {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--accent-light);
+    border: 1px solid var(--blue-100);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    margin-top: 24px;
+  }
+
+  .stat-highlight-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  .stat-highlight-text {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  .stat-highlight-text strong {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  /* ─── CTA STRIP ─── */
+  .cta-strip {
+    background: var(--slate-900);
+    padding: 72px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-strip-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,125,216,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,125,216,0.07) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .cta-inner { position: relative; z-index: 2; text-align: center; }
+
+  .cta-strip h2 {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+
+  .cta-strip p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    max-width: 460px;
+    margin: 0 auto 32px;
+    font-weight: 300;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  .btn-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    background: #3b7dd8;
+    color: #fff;
+    padding: 13px 26px;
+    border-radius: var(--radius-lg);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(59,125,216,0.35);
+  }
+
+  .btn-cta-primary:hover { background: #1a52a8; transform: translateY(-2px); }
+
+  .btn-cta-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.85);
+    padding: 13px 26px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255,255,255,0.15);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-cta-ghost:hover { background: rgba(255,255,255,0.13); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--slate-900);
+    padding: 48px 0 28px;
+  }
+
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 28px;
+  }
+
+  .footer-brand-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+  }
+
+  .footer-brand-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    max-width: 280px;
+    line-height: 1.6;
+  }
+
+  .footer-links-group h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 14px;
+  }
+
+  .footer-links-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links-group a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    transition: color 0.2s;
+  }
+
+  .footer-links-group a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+  .footer-legal { display: flex; flex-wrap: wrap; gap: 20px; }
+  .footer-legal a { font-size: 13px; color: rgba(255,255,255,0.3); transition: color 0.2s; }
+  .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (min-width: 600px) {
+    .projects-grid { grid-template-columns: repeat(3, 1fr); }
+    .footer-top { flex-direction: row; justify-content: space-between; align-items: flex-start; }
+    .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+  }
+
+  @media (min-width: 768px) {
+    .nav-links { display: flex; }
+    .hamburger { display: none; }
+    .value-grid { grid-template-columns: 1.3fr 1fr; gap: 64px; }
+    .service-layout { grid-template-columns: 1fr 1fr; gap: 56px; }
+    .service-layout.reverse > *:first-child { order: 2; }
+    .service-layout.reverse > *:last-child { order: 1; }
+  }
+
+  @media (min-width: 900px) {
+    .projects-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  /* ─── MOBILE NAV ─── */
+  .nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 20px 20px;
+    gap: 4px;
+    z-index: 99;
+  }
+
+  .nav-links.mobile-open li a {
+    display: block;
+    padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links.mobile-open li:last-child a { border-bottom: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="wecan-networkit-demo.html" class="nav-logo">
+        <span class="nav-logo-name">WeCan-NetworkIT</span>
+        <span class="nav-logo-tagline">Let Us Network IT For You</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#" class="active">Services</a></li>
+        <li><a href="wecan-networkit-about.html">About</a></li>
+        <li><a href="wecan-networkit-demo.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="tel:8058907261" class="btn-primary">Call Now</a>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-glow"></div>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="wecan-networkit-demo.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>IT Service Offerings</span>
+    </div>
+    <div class="page-hero-content">
+      <div class="page-hero-label">
+        <i class="fa-solid fa-network-wired"></i>
+        Enterprise IT Services
+      </div>
+      <h1>Complete <span>Managed IT</span><br>Service Offerings</h1>
+      <p class="page-hero-sub">Uncertainty is a business killer. Our fully-managed IT services suite is designed to provide you with 24/7 peace of mind — freeing you to focus on driving your business forward while we handle everything else.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY SERVICE NAV -->
+<div class="service-nav">
+  <div class="service-nav-inner">
+    <a href="#managed" class="service-nav-link active"><i class="fa-solid fa-shield-check"></i> Managed IT</a>
+    <a href="#server" class="service-nav-link"><i class="fa-solid fa-server"></i> Server Monitoring</a>
+    <a href="#desktop" class="service-nav-link"><i class="fa-solid fa-desktop"></i> Desktop Care</a>
+    <a href="#mobile" class="service-nav-link"><i class="fa-solid fa-mobile-screen"></i> MDM</a>
+    <a href="#network" class="service-nav-link"><i class="fa-solid fa-wifi"></i> Network Monitoring</a>
+    <a href="#security" class="service-nav-link"><i class="fa-solid fa-lock"></i> Security Assessments</a>
+    <a href="#projects" class="service-nav-link"><i class="fa-solid fa-list-check"></i> Custom Projects</a>
+    <a href="#continuity" class="service-nav-link"><i class="fa-solid fa-rotate"></i> Business Continuity</a>
+  </div>
+</div>
+
+<!-- INTRO VALUE PROP -->
+<section class="section">
+  <div class="container">
+    <div class="value-grid">
+      <div class="value-body">
+        <div class="section-label">Why Managed IT</div>
+        <h2 class="section-title">Stop Reacting.<br>Start Preventing.</h2>
+        <p>Taking a reactive approach to maintaining your IT networks is simply too costly — lost productivity, dissatisfied customers, and enormous repair costs. <strong>Our managed IT services are the smart, cost-effective alternative.</strong></p>
+        <p>With our managed IT services, you'll enjoy the benefit of a full team of IT specialists keeping your systems in excellent working order. For a small, fixed monthly fee, we monitor your systems 24/7, apply patches, ensure backups, keep viruses at bay, and perform a host of other proactive measures.</p>
+        <p>Little problems don't become big ones. And in most instances, you won't even know there was ever an issue.</p>
+        <div class="stat-highlight">
+          <div class="stat-highlight-num">80%</div>
+          <div class="stat-highlight-text">of total technology cost comes <strong>after the initial purchase</strong>. Reactive IT management drags on profitability. Our proactive approach protects your investment.</div>
+        </div>
+      </div>
+      <div class="value-callout">
+        <div class="value-callout-bg"></div>
+        <div class="value-callout-stat">
+          <div class="value-callout-icon"><i class="fa-solid fa-eye"></i></div>
+          <div>
+            <div class="value-callout-num">24/7/365</div>
+            <div class="value-callout-desc">Network and systems monitoring — servers, desktops, mobile devices</div>
+          </div>
+        </div>
+        <div class="value-callout-stat">
+          <div class="value-callout-icon"><i class="fa-solid fa-bolt"></i></div>
+          <div>
+            <div class="value-callout-num">Immediate</div>
+            <div class="value-callout-desc">Alert response — our team investigates the moment a system or function fails</div>
+          </div>
+        </div>
+        <div class="value-callout-stat">
+          <div class="value-callout-icon"><i class="fa-solid fa-shield"></i></div>
+          <div>
+            <div class="value-callout-num">Proactive</div>
+            <div class="value-callout-desc">Patch deployment, anti-virus support, and service pack installation kept current</div>
+          </div>
+        </div>
+        <div class="value-callout-stat">
+          <div class="value-callout-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+          <div>
+            <div class="value-callout-num">Fixed Fee</div>
+            <div class="value-callout-desc">Predictable monthly cost — no surprise repair bills or emergency call-out charges</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 — MANAGED IT OVERVIEW -->
+<section class="service-section section-alt" id="managed">
+  <div class="container">
+    <div class="service-layout">
+      <div>
+        <div class="service-header">
+          <div class="service-icon-lg"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="service-title-wrap">
+            <div class="service-number">Service 01</div>
+            <h2>Managed IT Services</h2>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>Our fully-managed IT services suite is designed to provide you with <strong>24/7 peace of mind</strong>, freeing you to focus on driving your business forward. We monitor your systems, apply patches, protect against viruses, ensure backups are performing successfully, and more.</p>
+          <p>We'll catch — and fix — the little problems before they become big ones. In many cases, we resolve issues before you're even aware one exists.</p>
+        </div>
+        <ul class="feature-list">
+          <li><i class="fa-solid fa-check"></i> Maintain 24/7 watch over your entire IT environment (servers, desktops, mobile devices)</li>
+          <li><i class="fa-solid fa-check"></i> Identify and analyze server events for potential problems</li>
+          <li><i class="fa-solid fa-check"></i> Troubleshooting and remediation for any processes or services that fail</li>
+          <li><i class="fa-solid fa-check"></i> Patch deployment, Service Pack installation and anti-virus support</li>
+          <li><i class="fa-solid fa-check"></i> Ensure that data backups are completed and restorable</li>
+          <li><i class="fa-solid fa-check"></i> Install patches and implement service packs</li>
+          <li><i class="fa-solid fa-check"></i> Manage and secure mobile devices — smartphones and tablets</li>
+        </ul>
+      </div>
+      <div class="service-detail-card">
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-clock"></i></div>
+          <div>
+            <div class="detail-text-label">Monitoring Coverage</div>
+            <div class="detail-text-value">24 hours a day, 7 days a week, 365 days a year — no gaps, no holidays</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-money-bill"></i></div>
+          <div>
+            <div class="detail-text-label">Pricing Model</div>
+            <div class="detail-text-value">Small, fixed monthly fee — predictable costs that scale with your business</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-laptop"></i></div>
+          <div>
+            <div class="detail-text-label">Devices Covered</div>
+            <div class="detail-text-value">Network servers, desktops, laptops, and mobile devices — your entire environment</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-wrench"></i></div>
+          <div>
+            <div class="detail-text-label">Response Approach</div>
+            <div class="detail-text-value">Remote first, escalating to on-site — fastest possible resolution every time</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div>
+            <div class="detail-text-label">Reporting</div>
+            <div class="detail-text-value">Regular system health reports — always know where your network stands</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 — SERVER MONITORING -->
+<section class="service-section" id="server">
+  <div class="container">
+    <div class="service-layout reverse">
+      <div>
+        <div class="service-header">
+          <div class="service-icon-lg"><i class="fa-solid fa-server"></i></div>
+          <div class="service-title-wrap">
+            <div class="service-number">Service 02</div>
+            <h2>Server Monitoring &amp; Care</h2>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>We utilize <strong>active-yet-unobtrusive software</strong> to track and analyze your server activity around the clock. When a system or function fails to work properly, an alert is generated and our team immediately investigates.</p>
+          <p>Once we've identified the problem, we'll take steps to fix it — remotely at first, and we'll escalate our response as necessary. Our expert technicians work around the clock to ensure your systems not only remain healthy, but are also optimized for performance.</p>
+          <p>We continually build intelligence into our remote monitoring software by documenting the resolution to thousands of issues and incorporating them back into the system — so we get faster and smarter over time.</p>
+        </div>
+        <ul class="feature-list">
+          <li><i class="fa-solid fa-check"></i> Active-yet-unobtrusive server activity tracking</li>
+          <li><i class="fa-solid fa-check"></i> Instant alert generation on system or function failure</li>
+          <li><i class="fa-solid fa-check"></i> Immediate remote investigation and remediation</li>
+          <li><i class="fa-solid fa-check"></i> Escalated on-site response when remote resolution isn't sufficient</li>
+          <li><i class="fa-solid fa-check"></i> Ongoing performance optimization — not just maintenance</li>
+        </ul>
+      </div>
+      <div class="service-detail-card">
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-database"></i></div>
+          <div>
+            <div class="detail-text-label">Server Platforms</div>
+            <div class="detail-text-value">Windows Server 2016, 2019, 2022 — Hyper-V, VMware ESX/ESXi, Dell/iDRAC</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-bell"></i></div>
+          <div>
+            <div class="detail-text-label">Alert System</div>
+            <div class="detail-text-value">Intelligent alerting built from thousands of documented resolutions — fewer false positives, faster fixes</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+          <div>
+            <div class="detail-text-label">Patch Management</div>
+            <div class="detail-text-value">Service packs, security patches, and anti-virus updates deployed automatically</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-gauge-high"></i></div>
+          <div>
+            <div class="detail-text-label">Performance Tuning</div>
+            <div class="detail-text-value">Ongoing optimization ensures your systems don't just run — they run well</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 — DESKTOP CARE -->
+<section class="service-section section-alt" id="desktop">
+  <div class="container">
+    <div class="service-layout">
+      <div>
+        <div class="service-header">
+          <div class="service-icon-lg"><i class="fa-solid fa-desktop"></i></div>
+          <div class="service-title-wrap">
+            <div class="service-number">Service 03</div>
+            <h2>Desktop Monitoring &amp; Care</h2>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>Our preventive maintenance service for desktops <strong>proactively and regimentally monitors and addresses</strong> common problems experienced by desktop users. Whether it's viruses, spyware issues, or installing patches — we handle it all quietly in the background while your employees remain productive.</p>
+          <p>Desktop problems are the most common cause of lost employee productivity. We take them off your plate entirely so your team never has to slow down.</p>
+        </div>
+        <ul class="feature-list">
+          <li><i class="fa-solid fa-check"></i> Proactive, regimented desktop monitoring — not reactive break/fix</li>
+          <li><i class="fa-solid fa-check"></i> Virus and spyware detection and removal</li>
+          <li><i class="fa-solid fa-check"></i> Automated patch and update deployment</li>
+          <li><i class="fa-solid fa-check"></i> Background maintenance — zero disruption to your team</li>
+          <li><i class="fa-solid fa-check"></i> Asset tracking and hardware lifecycle management</li>
+        </ul>
+      </div>
+      <div class="service-detail-card">
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-bug-slash"></i></div>
+          <div>
+            <div class="detail-text-label">Threat Removal</div>
+            <div class="detail-text-value">Viruses, spyware, adware, and malicious processes — caught and removed silently</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-user-check"></i></div>
+          <div>
+            <div class="detail-text-label">Employee Impact</div>
+            <div class="detail-text-value">Zero disruption — all maintenance runs in the background while work continues</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-file-shield"></i></div>
+          <div>
+            <div class="detail-text-label">Software Updates</div>
+            <div class="detail-text-value">OS patches, driver updates, and security fixes deployed on schedule — always current</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+          <div>
+            <div class="detail-text-label">Asset Management</div>
+            <div class="detail-text-value">Full inventory visibility — know exactly what hardware and software your business runs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 — MDM -->
+<section class="service-section" id="mobile">
+  <div class="container">
+    <div class="service-layout reverse">
+      <div>
+        <div class="service-header">
+          <div class="service-icon-lg"><i class="fa-solid fa-mobile-screen"></i></div>
+          <div class="service-title-wrap">
+            <div class="service-number">Service 04</div>
+            <h2>Mobile Device Management</h2>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>With more companies looking for efficient, secure ways to incorporate employees' personally owned devices into the workplace — known as <strong>BYOD (bring your own device)</strong> — we offer a response that answers all your needs.</p>
+          <p>Our MDM solution is the <strong>fastest, most comprehensive way</strong> to get devices configured for company access and to ensure your organization's data is secure on smartphones and tablets. As a fully integrated cloud platform, we simplify MDM with rapid deployment, as well as comprehensive visibility and control that spans across mobile devices, applications, and documents.</p>
+        </div>
+        <ul class="feature-list">
+          <li><i class="fa-solid fa-check"></i> Rapid BYOD device enrollment and configuration</li>
+          <li><i class="fa-solid fa-check"></i> Remote wipe capability for lost or compromised devices</li>
+          <li><i class="fa-solid fa-check"></i> Application management and policy enforcement</li>
+          <li><i class="fa-solid fa-check"></i> Document and data security across all mobile endpoints</li>
+          <li><i class="fa-solid fa-check"></i> Centralized visibility over every enrolled device</li>
+          <li><i class="fa-solid fa-check"></i> Citrix Sharefile integration and cloud environment support</li>
+        </ul>
+      </div>
+      <div class="service-detail-card">
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-cloud"></i></div>
+          <div>
+            <div class="detail-text-label">Platform</div>
+            <div class="detail-text-value">Fully integrated cloud platform — accessible and manageable from anywhere</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-mobile"></i></div>
+          <div>
+            <div class="detail-text-label">Device Support</div>
+            <div class="detail-text-value">iOS, Android smartphones and tablets — BYOD and company-owned</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-lock"></i></div>
+          <div>
+            <div class="detail-text-label">Data Security</div>
+            <div class="detail-text-value">Company data stays secure even on personal devices — policies enforced silently</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-rocket"></i></div>
+          <div>
+            <div class="detail-text-label">Deployment Speed</div>
+            <div class="detail-text-value">Fastest MDM deployment available — devices ready for secure access quickly</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 — NETWORK MONITORING -->
+<section class="service-section section-alt" id="network">
+  <div class="container">
+    <div class="service-layout">
+      <div>
+        <div class="service-header">
+          <div class="service-icon-lg"><i class="fa-solid fa-wifi"></i></div>
+          <div class="service-title-wrap">
+            <div class="service-number">Service 05</div>
+            <h2>Network Monitoring &amp; Care</h2>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>We keep tabs on your network activity around the clock. When a system or function fails, <strong>our support teams immediately jump in to investigate</strong>. Once the problem is identified, we'll work to fix it — in many cases before you've even realized there's an issue.</p>
+          <p>Our intelligent remote monitoring tools and 24/7 back-office services provide expert, cost-effective IT management to make sure your systems operate as required and deliver the ROI you expect.</p>
+        </div>
+        <ul class="feature-list">
+          <li><i class="fa-solid fa-check"></i> Continuous real-time network activity tracking</li>
+          <li><i class="fa-solid fa-check"></i> Immediate alert and investigation on failure</li>
+          <li><i class="fa-solid fa-check"></i> LAN, WAN, and VPN coverage</li>
+          <li><i class="fa-solid fa-check"></i> SonicWall firewall and Cisco router monitoring</li>
+          <li><i class="fa-solid fa-check"></i> Regular network health reporting with actionable insights</li>
+        </ul>
+      </div>
+      <div class="service-detail-card">
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-network-wired"></i></div>
+          <div>
+            <div class="detail-text-label">Network Scope</div>
+            <div class="detail-text-value">LAN, WAN, VPN — full coverage of your internal and external network environment</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div>
+            <div class="detail-text-label">Security Hardware</div>
+            <div class="detail-text-value">SonicWall firewall configuration and Cisco router programming — your perimeter secured</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-chart-bar"></i></div>
+          <div>
+            <div class="detail-text-label">Performance Reports</div>
+            <div class="detail-text-value">Regular system health reports — data-driven decisions, not guesswork</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div>
+            <div class="detail-text-label">Incident Response</div>
+            <div class="detail-text-value">Remote-first resolution with on-site escalation — issues closed fast</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 — SECURITY ASSESSMENTS -->
+<section class="service-section" id="security">
+  <div class="container">
+    <div class="service-layout reverse">
+      <div>
+        <div class="service-header">
+          <div class="service-icon-lg"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          <div class="service-title-wrap">
+            <div class="service-number">Service 06</div>
+            <h2>Network &amp; Security Assessments</h2>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>How healthy is your overall network? On a regular basis, <strong>we'll generate reports on the state of your systems</strong>, letting you know of any potential problems that fall outside safe parameters. With these comprehensive assessments, you'll always have the best information for choosing your most effective options.</p>
+          <p>What's more, we continually build intelligence into our remote monitoring software by documenting the resolution to thousands of issues — so every assessment gets smarter over time.</p>
+        </div>
+        <ul class="feature-list">
+          <li><i class="fa-solid fa-check"></i> Regular comprehensive network health reports</li>
+          <li><i class="fa-solid fa-check"></i> Out-of-parameter alerts before issues become critical</li>
+          <li><i class="fa-solid fa-check"></i> Security vulnerability identification and remediation recommendations</li>
+          <li><i class="fa-solid fa-check"></i> Software and hardware evaluation reporting</li>
+          <li><i class="fa-solid fa-check"></i> Intelligence built up from thousands of documented resolutions</li>
+        </ul>
+      </div>
+      <div class="service-detail-card">
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-file-lines"></i></div>
+          <div>
+            <div class="detail-text-label">Report Frequency</div>
+            <div class="detail-text-value">Regular scheduled assessments — you always know the state of your systems</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div>
+            <div class="detail-text-label">Early Warning</div>
+            <div class="detail-text-value">Problems flagged before they leave safe parameters — action taken before disruption</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-brain"></i></div>
+          <div>
+            <div class="detail-text-label">Adaptive Intelligence</div>
+            <div class="detail-text-value">Monitoring software trained on thousands of real resolutions — continuously improving</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-list-check"></i></div>
+          <div>
+            <div class="detail-text-label">Deliverable</div>
+            <div class="detail-text-value">Clear, actionable reports — not technical jargon. You get answers, not more questions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 — CUSTOM PROJECTS (DARK) -->
+<section class="service-section section-dark" id="projects">
+  <div class="section-dark-bg"></div>
+  <div class="container" style="position:relative; z-index:2;">
+    <div class="section-head">
+      <div class="section-label-light">Service 07</div>
+      <h2 class="section-title-light">Custom IT Projects</h2>
+      <p class="section-sub-light">We offer more than 85 custom projects designed to help optimize your IT infrastructure. Best of all, our technicians can perform the work <strong style="color:rgba(255,255,255,0.8);">overnight or over the weekend</strong> — so there's no interruption or downtime at your office.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="project-tile" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08);">
+        <div class="project-tile-icon" style="background:rgba(59,125,216,0.2); color:#7ab3f0;"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+        <div>
+          <div class="project-tile-name" style="color:rgba(255,255,255,0.85);">Cloud Migrations</div>
+          <div class="project-tile-desc" style="color:rgba(255,255,255,0.4);">Physical to cloud transitions</div>
+        </div>
+      </div>
+      <div class="project-tile" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08);">
+        <div class="project-tile-icon" style="background:rgba(59,125,216,0.2); color:#7ab3f0;"><i class="fa-solid fa-server"></i></div>
+        <div>
+          <div class="project-tile-name" style="color:rgba(255,255,255,0.85);">Server Migrations</div>
+          <div class="project-tile-desc" style="color:rgba(255,255,255,0.4);">Full OS and server replacements</div>
+        </div>
+      </div>
+      <div class="project-tile" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08);">
+        <div class="project-tile-icon" style="background:rgba(59,125,216,0.2); color:#7ab3f0;"><i class="fa-solid fa-envelope"></i></div>
+        <div>
+          <div class="project-tile-name" style="color:rgba(255,255,255,0.85);">Exchange to M365</div>
+          <div class="project-tile-desc" style="color:rgba(255,255,255,0.4);">On-site to hosted email migration</div>
+        </div>
+      </div>
+      <div class="project-tile" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08);">
+        <div class="project-tile-icon" style="background:rgba(59,125,216,0.2); color:#7ab3f0;"><i class="fa-solid fa-layer-group"></i></div>
+        <div>
+          <div class="project-tile-name" style="color:rgba(255,255,255,0.85);">Virtualization</div>
+          <div class="project-tile-desc" style="color:rgba(255,255,255,0.4);">P2V migrations, VMware, Hyper-V</div>
+        </div>
+      </div>
+      <div class="project-tile" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08);">
+        <div class="project-tile-icon" style="background:rgba(59,125,216,0.2); color:#7ab3f0;"><i class="fa-solid fa-network-wired"></i></div>
+        <div>
+          <div class="project-tile-name" style="color:rgba(255,255,255,0.85);">Network Setup</div>
+          <div class="project-tile-desc" style="color:rgba(255,255,255,0.4);">New infrastructure builds and configs</div>
+        </div>
+      </div>
+      <div class="project-tile" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08);">
+        <div class="project-tile-icon" style="background:rgba(59,125,216,0.2); color:#7ab3f0;"><i class="fa-solid fa-key"></i></div>
+        <div>
+          <div class="project-tile-name" style="color:rgba(255,255,255,0.85);">Domain &amp; Forest</div>
+          <div class="project-tile-desc" style="color:rgba(255,255,255,0.4);">New forests, AD, domain reconfigs</div>
+        </div>
+      </div>
+      <div class="project-tile" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08);">
+        <div class="project-tile-icon" style="background:rgba(59,125,216,0.2); color:#7ab3f0;"><i class="fa-solid fa-hard-drive"></i></div>
+        <div>
+          <div class="project-tile-name" style="color:rgba(255,255,255,0.85);">Backup Implementation</div>
+          <div class="project-tile-desc" style="color:rgba(255,255,255,0.4);">Veritas Backup Exec and BDR plans</div>
+        </div>
+      </div>
+      <div class="project-tile" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08);">
+        <div class="project-tile-icon" style="background:rgba(59,125,216,0.2); color:#7ab3f0;"><i class="fa-solid fa-plus"></i></div>
+        <div>
+          <div class="project-tile-name" style="color:rgba(255,255,255,0.85);">85+ More Projects</div>
+          <div class="project-tile-desc" style="color:rgba(255,255,255,0.4);">Call to discuss your specific needs</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:32px; padding:20px 24px; background:rgba(59,125,216,0.12); border:1px solid rgba(59,125,216,0.25); border-radius:var(--radius-lg); display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+      <i class="fa-solid fa-moon" style="color:#7ab3f0; font-size:20px; flex-shrink:0;"></i>
+      <p style="color:rgba(255,255,255,0.65); font-size:15px; font-weight:300; line-height:1.6; margin:0;">All custom projects are scheduled <strong style="color:rgba(255,255,255,0.85); font-weight:600;">overnight or over the weekend</strong> so your team experiences zero business interruption. You come in Monday morning and everything's done.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 — BUSINESS CONTINUITY -->
+<section class="service-section section-alt" id="continuity">
+  <div class="container">
+    <div class="service-layout">
+      <div>
+        <div class="service-header">
+          <div class="service-icon-lg"><i class="fa-solid fa-rotate"></i></div>
+          <div class="service-title-wrap">
+            <div class="service-number">Service 08</div>
+            <h2>Business Continuity &amp; Backup</h2>
+          </div>
+        </div>
+        <div class="service-body">
+          <p>If the power in your office fails tonight and all of your computers crash — <strong>how quickly can you recover?</strong> And more importantly, at what cost?</p>
+          <p>Our business continuity solution is about more than just backup. It's designed to <strong>quickly revive your network following any unplanned downtime</strong> and ensure your employees are operating productively in almost no time at all.</p>
+          <p>Our data backup and continuity solution ensures your critical information is secure, backed up, and accessible whenever you need it — even during a network failure or a disaster.</p>
+        </div>
+        <div class="stat-highlight">
+          <div class="stat-highlight-num">93%</div>
+          <div class="stat-highlight-text">of companies that experience a disaster go out of business within <strong>5 years</strong> — even if they can recover in the short term. We're here to make sure you're not one of them.</div>
+        </div>
+        <ul class="feature-list" style="margin-top:20px;">
+          <li><i class="fa-solid fa-check"></i> Veritas Backup Exec implementation and management</li>
+          <li><i class="fa-solid fa-check"></i> Automated backup verification and restoration testing</li>
+          <li><i class="fa-solid fa-check"></i> Disaster recovery planning and documentation</li>
+          <li><i class="fa-solid fa-check"></i> Data accessible even during full network outages</li>
+          <li><i class="fa-solid fa-check"></i> Business Continuity and Disaster Recovery (BDR) strategy design</li>
+        </ul>
+      </div>
+      <div class="service-detail-card">
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-hard-drive"></i></div>
+          <div>
+            <div class="detail-text-label">Backup Technology</div>
+            <div class="detail-text-value">Veritas Backup Exec — enterprise-grade backup trusted by businesses worldwide</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-rotate-right"></i></div>
+          <div>
+            <div class="detail-text-label">Recovery Speed</div>
+            <div class="detail-text-value">Designed to get your team operating productively again with minimal downtime</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-shield-check"></i></div>
+          <div>
+            <div class="detail-text-label">Data Integrity</div>
+            <div class="detail-text-value">Backups verified and tested — not just stored, but confirmed restorable</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-file-contract"></i></div>
+          <div>
+            <div class="detail-text-label">BDR Strategy</div>
+            <div class="detail-text-value">Full disaster recovery plan documented and ready — so there's no guessing under pressure</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon"><i class="fa-solid fa-bolt"></i></div>
+          <div>
+            <div class="detail-text-label">Failure Scenarios</div>
+            <div class="detail-text-value">Power outages, hardware failures, ransomware, natural disasters — all covered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div class="cta-strip-bg"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <h2>Let Us Answer Any Questions About Your IT Needs</h2>
+      <p>We'll show you the simplest, most affordable way to keep your IT network in top form.</p>
+      <div class="cta-buttons">
+        <a href="tel:8058907261" class="btn-cta-primary">
+          <i class="fa-solid fa-phone"></i> Call 805.890.7261
+        </a>
+        <a href="wecan-networkit-demo.html#contact" class="btn-cta-ghost">
+          <i class="fa-solid fa-envelope"></i> Send a Message
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">WeCan-NetworkIT</div>
+        <p class="footer-brand-desc">Enterprise IT services for businesses that can't afford downtime. Let us network IT for you.</p>
+      </div>
+      <div class="footer-links-group">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#server">Server Monitoring</a></li>
+          <li><a href="#mobile">Mobile Device Management</a></li>
+          <li><a href="#security">Network Assessments</a></li>
+          <li><a href="#continuity">Business Continuity</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="wecan-networkit-about.html">About Us</a></li>
+          <li><a href="wecan-networkit-demo.html#contact">Contact</a></li>
+          <li><a href="#">Accessibility Statement</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© WeCan-NetworkIT. Oxnard, California.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button id="scroll-top" aria-label="Scroll to top">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<script>
+  /* ── Scroll to top ── */
+  const scrollBtn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ── Mobile menu ── */
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks  = document.querySelector('.nav-links');
+
+  function closeMenu() {
+    navLinks.classList.remove('mobile-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.querySelector('i').className = 'fa-solid fa-bars';
+  }
+
+  function openMenu() {
+    navLinks.classList.add('mobile-open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.querySelector('i').className = 'fa-solid fa-xmark';
+  }
+
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navLinks.classList.contains('mobile-open') ? closeMenu() : openMenu();
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) closeMenu();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) closeMenu();
+  });
+
+  /* ── Active service nav on scroll ── */
+  const sections = document.querySelectorAll('[id]');
+  const navItems = document.querySelectorAll('.service-nav-link');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navItems.forEach(item => item.classList.remove('active'));
+        const active = document.querySelector(`.service-nav-link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
