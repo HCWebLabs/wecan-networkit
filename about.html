@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Enterprise IT Services | WeCan-NetworkIT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Barlow+Condensed:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0d1829; }
+  ::-webkit-scrollbar-thumb { background: #1a52a8; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #3b7dd8; }
+  * { scrollbar-width: thin; scrollbar-color: #1a52a8 #0d1829; }
+
+  /* ─── SCROLL TO TOP ─── */
+  #scroll-top {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    z-index: 999;
+    width: 44px;
+    height: 44px;
+    background: #1a52a8;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background 0.2s;
+    box-shadow: 0 4px 16px rgba(26,82,168,0.4);
+  }
+  #scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  #scroll-top:hover { background: #0d3270; }
+  #scroll-top i { font-size: 15px; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue-50: #e8f0fa;
+    --blue-100: #c3d5f3;
+    --blue-200: #9abbec;
+    --blue-400: #3b7dd8;
+    --blue-600: #1a52a8;
+    --blue-800: #0d3270;
+    --blue-900: #071e45;
+    --slate-50: #f4f6f9;
+    --slate-100: #e8ecf2;
+    --slate-200: #cdd4df;
+    --slate-400: #8896ac;
+    --slate-600: #4e5f78;
+    --slate-800: #1e2d45;
+    --slate-900: #0d1829;
+    --white: #ffffff;
+    --accent: #1a52a8;
+    --accent-light: #e8f0fa;
+    --text-primary: #0d1829;
+    --text-secondary: #4e5f78;
+    --text-muted: #8896ac;
+    --border: #e0e6ef;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --shadow-sm: 0 1px 3px rgba(13,24,41,0.08);
+    --shadow-md: 0 4px 12px rgba(13,24,41,0.10);
+    --shadow-lg: 0 8px 32px rgba(13,24,41,0.12);
+  }
+
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text-primary);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  nav .container { position: relative; }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    gap: 24px;
+  }
+
+  .nav-logo { display: flex; flex-direction: column; gap: 1px; }
+
+  .nav-logo-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--blue-800);
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  .nav-logo-tagline {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: none;
+    list-style: none;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--accent); }
+
+  .nav-cta { display: flex; align-items: center; gap: 12px; }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--accent);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(26,82,168,0.25);
+  }
+
+  .btn-primary:hover { background: var(--blue-800); transform: translateY(-1px); }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    padding: 0;
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 16px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .hamburger:hover { background: var(--slate-50); border-color: var(--slate-200); }
+
+  /* ─── PAGE HERO / BREADCRUMB ─── */
+  .page-hero {
+    background: var(--slate-900);
+    padding: 72px 0 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,125,216,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,125,216,0.07) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+
+  .page-hero-glow {
+    position: absolute;
+    top: -30%;
+    right: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(26,82,168,0.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .breadcrumb a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+  .breadcrumb a:hover { color: rgba(255,255,255,0.75); }
+  .breadcrumb i { font-size: 10px; }
+  .breadcrumb span { color: rgba(255,255,255,0.7); }
+
+  .page-hero-content { position: relative; z-index: 2; }
+
+  .page-hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(59,125,216,0.15);
+    border: 1px solid rgba(59,125,216,0.3);
+    color: #7ab3f0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 13px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(38px, 6vw, 68px);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 18px;
+  }
+
+  .page-hero h1 span { color: #3b7dd8; }
+
+  .page-hero-sub {
+    font-size: clamp(15px, 2vw, 18px);
+    color: rgba(255,255,255,0.6);
+    max-width: 600px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ─── SECTIONS ─── */
+  .section { padding: 80px 0; }
+  .section-alt { background: var(--slate-50); }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+  }
+
+  .section-sub {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 560px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .section-head { margin-bottom: 48px; }
+
+  /* ─── INTRO SPLIT ─── */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .intro-body p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 18px;
+    font-weight: 300;
+  }
+
+  .intro-body p:last-child { margin-bottom: 0; }
+
+  .intro-body strong {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  /* ─── STAT CARDS ─── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .stat-card-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .stat-card-value sup {
+    font-size: 22px;
+    vertical-align: super;
+  }
+
+  .stat-card-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* ─── OWNER BIO ─── */
+  .bio-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .bio-card {
+    background: var(--slate-900);
+    border-radius: var(--radius-xl);
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bio-card-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,125,216,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,125,216,0.07) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .bio-avatar {
+    position: relative;
+    z-index: 2;
+    width: 72px;
+    height: 72px;
+    background: rgba(59,125,216,0.2);
+    border: 2px solid rgba(59,125,216,0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .bio-avatar i {
+    font-size: 30px;
+    color: #7ab3f0;
+  }
+
+  .bio-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    margin-bottom: 4px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .bio-title {
+    font-size: 13px;
+    color: #7ab3f0;
+    font-weight: 500;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+    letter-spacing: 0.02em;
+  }
+
+  .bio-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .bio-detail-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .bio-detail-row:last-child { margin-bottom: 0; }
+
+  .bio-detail-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(59,125,216,0.15);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #7ab3f0;
+    font-size: 13px;
+  }
+
+  .bio-detail-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 2px;
+  }
+
+  .bio-detail-value {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+  }
+
+  .bio-content { }
+
+  .bio-content p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .bio-content p:last-child { margin-bottom: 0; }
+
+  /* ─── EXPERTISE TAGS ─── */
+  .tag-group { margin-bottom: 28px; }
+
+  .tag-group-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  .tag-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-light);
+    color: var(--blue-800);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 100px;
+    border: 1px solid var(--blue-100);
+  }
+
+  .tag i { font-size: 11px; color: var(--accent); }
+
+  /* ─── EXPERTISE GRID ─── */
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .expertise-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .expertise-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .expertise-card:hover {
+    border-color: var(--blue-200);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+  }
+
+  .expertise-card:hover::before { transform: scaleX(1); }
+
+  .expertise-card-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--accent-light);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: var(--accent);
+    font-size: 20px;
+  }
+
+  .expertise-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .expertise-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  /* ─── INDUSTRIES ─── */
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .industry-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    transition: all 0.2s;
+  }
+
+  .industry-item:hover {
+    border-color: var(--blue-200);
+    background: var(--accent-light);
+    transform: translateX(4px);
+  }
+
+  .industry-icon {
+    width: 38px;
+    height: 38px;
+    background: var(--accent-light);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+    font-size: 16px;
+    transition: background 0.2s;
+  }
+
+  .industry-item:hover .industry-icon { background: var(--blue-100); }
+
+  .industry-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  /* ─── CERTS ─── */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    transition: all 0.2s;
+  }
+
+  .cert-item:hover {
+    border-color: var(--blue-200);
+    box-shadow: var(--shadow-md);
+  }
+
+  .cert-badge {
+    width: 56px;
+    height: 56px;
+    background: var(--accent);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--white);
+    font-size: 22px;
+  }
+
+  .cert-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  .cert-issuer {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* ─── TIMELINE (Previous Experience) ─── */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 36px;
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-dot {
+    position: absolute;
+    left: -24px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+
+  .timeline-role {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+
+  .timeline-company {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .timeline-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ─── CTA STRIP ─── */
+  .cta-strip {
+    background: var(--slate-900);
+    padding: 72px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-strip-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,125,216,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,125,216,0.07) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .cta-inner { position: relative; z-index: 2; text-align: center; }
+
+  .cta-strip h2 {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+
+  .cta-strip p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    max-width: 460px;
+    margin: 0 auto 32px;
+    font-weight: 300;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  .btn-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    background: #3b7dd8;
+    color: #fff;
+    padding: 13px 26px;
+    border-radius: var(--radius-lg);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(59,125,216,0.35);
+  }
+
+  .btn-cta-primary:hover { background: #1a52a8; transform: translateY(-2px); }
+
+  .btn-cta-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.85);
+    padding: 13px 26px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255,255,255,0.15);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-cta-ghost:hover { background: rgba(255,255,255,0.13); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--slate-900);
+    padding: 48px 0 28px;
+  }
+
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 28px;
+  }
+
+  .footer-brand-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+  }
+
+  .footer-brand-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    max-width: 280px;
+    line-height: 1.6;
+  }
+
+  .footer-links-group h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 14px;
+  }
+
+  .footer-links-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links-group a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    transition: color 0.2s;
+  }
+
+  .footer-links-group a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+  .footer-legal { display: flex; flex-wrap: wrap; gap: 20px; }
+
+  .footer-legal a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    transition: color 0.2s;
+  }
+
+  .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (min-width: 600px) {
+    .stats-row { grid-template-columns: repeat(4, 1fr); }
+    .industries-grid { grid-template-columns: repeat(3, 1fr); }
+    .certs-grid { grid-template-columns: repeat(3, 1fr); }
+    .footer-top { flex-direction: row; justify-content: space-between; align-items: flex-start; }
+    .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+  }
+
+  @media (min-width: 768px) {
+    .nav-links { display: flex; }
+    .hamburger { display: none; }
+    .intro-grid { grid-template-columns: 1.2fr 1fr; gap: 64px; }
+    .bio-grid { grid-template-columns: 1fr 1.6fr; gap: 56px; }
+    .expertise-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 900px) {
+    .expertise-grid { grid-template-columns: repeat(3, 1fr); }
+    .industries-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* Mobile nav open */
+  .nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 20px 20px;
+    gap: 4px;
+    z-index: 99;
+  }
+
+  .nav-links.mobile-open li a {
+    display: block;
+    padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links.mobile-open li:last-child a { border-bottom: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="wecan-networkit-demo.html" class="nav-logo">
+        <span class="nav-logo-name">WeCan-NetworkIT</span>
+        <span class="nav-logo-tagline">Let Us Network IT For You</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="wecan-networkit-services.html">Services</a></li>
+        <li><a href="#" class="active">About</a></li>
+        <li><a href="wecan-networkit-contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="tel:8058907261" class="btn-primary">Call Now</a>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-glow"></div>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="wecan-networkit-demo.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>About Us</span>
+    </div>
+    <div class="page-hero-content">
+      <div class="page-hero-label">
+        <i class="fa-solid fa-circle-info"></i>
+        Our Story
+      </div>
+      <h1>Enterprise IT <span>Expertise</span><br>You Can Count On</h1>
+      <p class="page-hero-sub">We Can Network IT provides comprehensive enterprise IT network services designed to support businesses across a wide range of industries. From Network Administration to monitoring and support — we've got you covered.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO + STATS -->
+<section class="section">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-body">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">Built on Experience.<br>Driven by Results.</h2>
+        <p>We Can Network IT is a dedicated, detail-oriented IT services firm based in Oxnard, California. With over <strong>15 years of strong and diverse experience</strong> in LAN, WAN, and VPN network administration, we've built a reputation for solving complex IT challenges with precision, care, and zero unnecessary downtime.</p>
+        <p>We work with small businesses and medical offices across Ventura County, providing the same caliber of enterprise-grade infrastructure management that larger organizations demand — at a scale and price point that makes sense for growing businesses.</p>
+        <p>Our approach is simple: <strong>proactive over reactive.</strong> We catch and resolve problems before they ever affect your team, your clients, or your bottom line. In most cases, you won't even know there was ever an issue.</p>
+      </div>
+      <div>
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-card-value">15<sup>+</sup></div>
+            <div class="stat-card-label">Years of IT experience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-value">85<sup>+</sup></div>
+            <div class="stat-card-label">Custom project types</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-value">24/7</div>
+            <div class="stat-card-label">Network monitoring</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-value">5<sup>+</sup></div>
+            <div class="stat-card-label">Key industries served</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OWNER BIO -->
+<section class="section section-alt" id="bio">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Meet the Engineer</div>
+      <h2 class="section-title">The Person Behind Your Network</h2>
+      <p class="section-sub">WeCan-NetworkIT is owner-operated — meaning when you call, you get the expert, not a call center.</p>
+    </div>
+    <div class="bio-grid">
+      <div class="bio-card">
+        <div class="bio-card-bg"></div>
+        <div class="bio-avatar">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+        <div class="bio-name">Jeremy Climer</div>
+        <div class="bio-title">Owner &amp; Primary IT Networking &amp; Security Engineer</div>
+        <div class="bio-divider"></div>
+        <div class="bio-detail-row">
+          <div class="bio-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <div class="bio-detail-label">Location</div>
+            <div class="bio-detail-value">Oxnard, Ventura County, CA</div>
+          </div>
+        </div>
+        <div class="bio-detail-row">
+          <div class="bio-detail-icon"><i class="fa-solid fa-briefcase"></i></div>
+          <div>
+            <div class="bio-detail-label">Specialty</div>
+            <div class="bio-detail-value">Network Engineering &amp; Windows Administration</div>
+          </div>
+        </div>
+        <div class="bio-detail-row">
+          <div class="bio-detail-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <div class="bio-detail-label">Direct Line</div>
+            <div class="bio-detail-value"><a href="tel:8058907261" style="color:#7ab3f0;">805.890.7261</a></div>
+          </div>
+        </div>
+        <div class="bio-detail-row">
+          <div class="bio-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <div class="bio-detail-label">Email</div>
+            <div class="bio-detail-value"><a href="/cdn-cgi/l/email-protection#a0eaf2e3e0f7c5e3c1ce8deec5d4d7cfd2cbc9d48ec3cfcd" style="color:#7ab3f0;"><span class="__cf_email__" data-cfemail="e7adb5a4a7b082a48689caa982939088958c8e93c984888a">[email&#160;protected]</span></a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bio-content">
+        <p>Jeremy Climer is a dedicated, detail-oriented, and adaptable self-starter with excellent diagnostic abilities — skilled at completing projects within time and budget constraints, and equally capable of working independently or as part of a larger team.</p>
+        <p>With deep expertise in infrastructure management, risk management, and end-user support, Jeremy has provided IT and network services to local businesses across construction, produce, plumbing, aviation support, and architecture — bringing enterprise-grade thinking to every engagement.</p>
+        <p>Prior to founding WeCan-NetworkIT, Jeremy served as a Healthcare IT Consultant at MTS Healthcare, providing technical support for medical practices using NextGen software — an environment that demands meticulous attention to security, uptime, and data integrity.</p>
+
+        <div class="tag-group">
+          <div class="tag-group-label">Core Competencies</div>
+          <div class="tag-wrap">
+            <span class="tag"><i class="fa-solid fa-check"></i> Technical Support &amp; Helpdesk</span>
+            <span class="tag"><i class="fa-solid fa-check"></i> Project Administration</span>
+            <span class="tag"><i class="fa-solid fa-check"></i> Remote Management</span>
+            <span class="tag"><i class="fa-solid fa-check"></i> Infrastructure Setup &amp; Conversions</span>
+            <span class="tag"><i class="fa-solid fa-check"></i> Firewalls &amp; VPN Connectivity</span>
+            <span class="tag"><i class="fa-solid fa-check"></i> Diagnosis &amp; Repair</span>
+            <span class="tag"><i class="fa-solid fa-check"></i> Backups, Data Salvage &amp; Recovery</span>
+            <span class="tag"><i class="fa-solid fa-check"></i> Physical-to-Virtual Migrations</span>
+            <span class="tag"><i class="fa-solid fa-check"></i> Multi-Site Server Farms</span>
+            <span class="tag"><i class="fa-solid fa-check"></i> Database Maintenance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNICAL EXPERTISE -->
+<section class="section" id="expertise">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Technical Depth</div>
+      <h2 class="section-title">What We Know — And Do — Best</h2>
+      <p class="section-sub">Our expertise spans the full stack of enterprise IT infrastructure. Here's what we bring to your network.</p>
+    </div>
+    <div class="expertise-grid">
+
+      <div class="expertise-card">
+        <div class="expertise-card-icon"><i class="fa-solid fa-server"></i></div>
+        <h3>Windows Server Environments</h3>
+        <p>Deep expertise across Windows Server 2016, 2019, and 2022, Microsoft Remote Desktop Services, and Exchange Server administration. Secure, scalable access to critical systems every time.</p>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-card-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <h3>Virtualization &amp; Server Management</h3>
+        <p>End-to-end server management using Hyper-V and VMware ESX/ESXi, including physical-to-virtual migrations involving up to seven virtual servers — with zero production disruption.</p>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Firewalls &amp; Network Security</h3>
+        <p>Advanced SonicWall firewall configuration and Cisco router programming, delivering secure and resilient network solutions tailored to your operational requirements.</p>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-card-icon"><i class="fa-solid fa-cloud"></i></div>
+        <h3>Cloud &amp; Microsoft 365</h3>
+        <p>Expertly managed VPNs and Microsoft 365 deployments. On-site Exchange to Office 365 hosted email migration, Citrix Sharefile physical server to cloud transitions — handled seamlessly.</p>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-card-icon"><i class="fa-solid fa-hard-drive"></i></div>
+        <h3>Disaster Recovery &amp; Backup</h3>
+        <p>Proven experience in disaster recovery planning, Veritas Backup Exec implementation, and Dell server/iDRAC configuration. Implementation of backup plans, data restoration, and full recovery execution.</p>
+      </div>
+
+      <div class="expertise-card">
+        <div class="expertise-card-icon"><i class="fa-solid fa-network-wired"></i></div>
+        <h3>Network Administration</h3>
+        <p>Over 15 years in LAN, WAN, and VPN network administration including NetWare, Zenworks asset management, Citrix MetaFrame XP and XenApp 6, and advanced mobile device management.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section section-alt" id="certifications">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Credentials</div>
+      <h2 class="section-title">Certified. Proven. Trusted.</h2>
+      <p class="section-sub">Our certifications aren't wallpaper — they represent real, tested knowledge applied to real client environments every day.</p>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-item">
+        <div class="cert-badge"><i class="fa-solid fa-shield-halved"></i></div>
+        <div>
+          <div class="cert-name">SonicWall Certified</div>
+          <div class="cert-issuer">Firewall Administrator</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-badge"><i class="fa-solid fa-medal"></i></div>
+        <div>
+          <div class="cert-name">CNA Certified</div>
+          <div class="cert-issuer">Certified Novell Administrator</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-badge"><i class="fa-solid fa-desktop"></i></div>
+        <div>
+          <div class="cert-name">Citrix Certified</div>
+          <div class="cert-issuer">Citrix Administrator</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES SERVED -->
+<section class="section" id="industries">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Industries We Serve</div>
+      <h2 class="section-title">Cross-Industry IT Support</h2>
+      <p class="section-sub">We've provided hands-on IT and network support across a diverse range of business sectors — each with unique infrastructure demands.</p>
+    </div>
+    <div class="industries-grid">
+      <div class="industry-item">
+        <div class="industry-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+        <div class="industry-name">Construction</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-icon"><i class="fa-solid fa-plane"></i></div>
+        <div class="industry-name">Aviation Support</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-icon"><i class="fa-solid fa-house-medical"></i></div>
+        <div class="industry-name">Healthcare &amp; Medical</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-icon"><i class="fa-solid fa-drafting-compass"></i></div>
+        <div class="industry-name">Architecture</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-icon"><i class="fa-solid fa-wrench"></i></div>
+        <div class="industry-name">Plumbing &amp; Trade</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-icon"><i class="fa-solid fa-seedling"></i></div>
+        <div class="industry-name">Produce &amp; Agriculture</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-icon"><i class="fa-solid fa-mug-hot"></i></div>
+        <div class="industry-name">Food &amp; Beverage</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-icon"><i class="fa-solid fa-store"></i></div>
+        <div class="industry-name">Retail &amp; Multi-Location</div>
+      </div>
+      <div class="industry-item">
+        <div class="industry-icon"><i class="fa-solid fa-building"></i></div>
+        <div class="industry-name">Small Business</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIOUS EXPERIENCE TIMELINE -->
+<section class="section section-alt" id="experience">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Track Record</div>
+      <h2 class="section-title">Experience That Speaks For Itself</h2>
+      <p class="section-sub">Before WeCan-NetworkIT, Jeremy built his expertise across major enterprise field service deployments — including Fortune 500 brands.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-role">Owner &amp; Primary IT Engineer</div>
+        <div class="timeline-company">WeCan-NetworkIT — Oxnard, CA</div>
+        <div class="timeline-desc">Providing IT and network services to local businesses including system and server management, installations, configurations, upgrades, modifications, migrations, and virtualizations — as well as server recovery and data salvage. Key clients include Chris Nelson &amp; Associates, Environmental Patterns, Adroit Development, Coastal SoftTub, and more.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-role">Healthcare IT Consultant</div>
+        <div class="timeline-company">MTS Healthcare</div>
+        <div class="timeline-desc">Technical support for medical practices using NextGen software. Healthcare IT demands the highest standard of data security, system uptime, and HIPAA-conscious infrastructure management.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-role">Lead Field Service Technician</div>
+        <div class="timeline-company">HP, Dell, Morgan Stanley, Rabobank &amp; More</div>
+        <div class="timeline-desc">Enterprise field service deployments across major brands — including XP to Windows 7 migrations at Morgan Stanley (Woodland Hills &amp; Santa Barbara), 10-location Rabobank OS migrations, Chase, Target, Big Five, Forever21 POS replacements, and Enterprise Rent-a-Car pin pad replacements across 12 locations.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div class="cta-strip-bg"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <h2>Ready to Work With a Real IT Expert?</h2>
+      <p>No call centers. No ticketing queues. Just Jeremy — picking up the phone and solving your problem.</p>
+      <div class="cta-buttons">
+        <a href="tel:8058907261" class="btn-cta-primary">
+          <i class="fa-solid fa-phone"></i> Call 805.890.7261
+        </a>
+        <a href="wecan-networkit-contact.html" class="btn-cta-ghost">
+          <i class="fa-solid fa-envelope"></i> Send a Message
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">WeCan-NetworkIT</div>
+        <p class="footer-brand-desc">Enterprise IT services for businesses that can't afford downtime. Let us network IT for you.</p>
+      </div>
+      <div class="footer-links-group">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="wecan-networkit-services.html#server">Server Monitoring</a></li>
+          <li><a href="wecan-networkit-services.html#mobile">Mobile Device Management</a></li>
+          <li><a href="wecan-networkit-services.html#security">Network Assessments</a></li>
+          <li><a href="wecan-networkit-services.html#continuity">Business Continuity</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="wecan-networkit-contact.html">Contact</a></li>
+          <li><a href="#">Accessibility Statement</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© WeCan-NetworkIT. Oxnard, California.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button id="scroll-top" aria-label="Scroll to top">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  /* ── Scroll to top ── */
+  const scrollBtn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ── Mobile menu ── */
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks  = document.querySelector('.nav-links');
+
+  function closeMenu() {
+    navLinks.classList.remove('mobile-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.querySelector('i').className = 'fa-solid fa-bars';
+  }
+
+  function openMenu() {
+    navLinks.classList.add('mobile-open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.querySelector('i').className = 'fa-solid fa-xmark';
+  }
+
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navLinks.classList.contains('mobile-open') ? closeMenu() : openMenu();
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) closeMenu();
+  });
+</script>
+
+</body>
+</html>
